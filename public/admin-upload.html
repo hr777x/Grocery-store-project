@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Bulk Upload</title>
+    <link rel="stylesheet" href="styles/admin.css">
+</head>
+<body>
+    <header>
+        <h1 class="page-title">Admin - Bulk Upload</h1>
+        <nav>
+            <ul>
+                <li><a href="admin-upload.html">Bulk Upload</a></li>
+                <li><a href="admin-products.html">Product Listing</a></li>
+                <li><a href="#">Sign Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form>
+            <h2 class="heading-2">Upload Product Data</h2>
+            <label for="file-upload">Choose a JSON, CSV, or text file:</label>
+            <input type="file" id="file-upload" name="file-upload">
+            <button type="submit">Upload</button>
+        </form>
+        
+        <section class="example-file">
+            <h3>Example File Format:</h3>
+            <pre>
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Product 1",
+            "description": "This is a sample product",
+            "price": 19.99,
+            "category": "Category 1",
+            "image": "path/to/image1.jpg"
+        }
+    ]
+}
+            </pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>Admin Panel - Bulk Upload</p>
+    </footer>
+</body>
+</html>

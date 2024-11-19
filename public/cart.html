@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <a href="index.html" class="footer">HOME</a><br>
+                <a href="product.html" class="footer">PRODUCT</a><br>
+                <a href="cart.html" class="footer">CART</a><br>
+                <a href="#" class="footer">SIGN IN</a><br>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart-section">
+            <div class="container">
+                <h1 class="page-heading">Shopping Cart</h1>
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th class="product">Product</th>
+                            <th class="quantity">Quantity</th>
+                            <th class="total">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="cart-single-item">
+                            <td>
+                                <div class="cart item-details">
+                                    <img src="images/apple.jpg" alt="Item 1" class="item-image">
+                                    <div>
+                                        <h1>Apple</h1>
+                                        <p class="description">Apples are a nutritious fruit, rich in dietary fiber and vitamin C, and are also low in calories. They provide antioxidants and small amounts of potassium, vitamin K, and vitamin B6.</p>
+                                        <p class="item-price">$10.00</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="item-quantity">
+                                    <input class="quantity-value" type="number" id="quantity1" name="quantity1"
+                                        value="1">
+                                    <div class="edit-btn-wrapper">
+                                        <button class="update">Update</button>
+                                        <button class="remove">Remove</button>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <p class="item-total">$10.00</p>
+                            </td>
+                        </tr>
+
+
+                        <tr class="cart-single-item">
+                            <td>
+                                <div class="cart item-details">
+                                    <img src="images/grapes.jpg" alt="Item 1" class="item-image">
+                                    <div>
+                                        <h1>Product Name</h1>
+                                        <p class="description">grapes are really sweet.</p>
+                                        <p class="item-price">$10.00</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="item-quantity">
+                                    <input class="quantity-value" type="number" id="quantity1" name="quantity1"
+                                        value="2">
+                                    <div class="edit-btn-wrapper">
+                                        <button class="update">Update</button>
+                                        <button class="remove">Remove</button>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <p class="item-total">$20.00</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="summary-table">
+                    <tr class="cart-single-item">
+                        <td class="col-half col-summary">
+                            <div class="cart-summary">
+                                <p><b>Subtotal:</b> $20.00</p>
+                                <p><b>Tax (6.75%):</b> $1.22</p>
+                                <p><b>Delivery Fee:</b> $5.00</p>
+                                <p><b>Total:</b> $26.22</p>
+                                <button class="add-to-cart checkout">Proceed to Checkout</button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                &copy; 2024 Project Milestones.
+            </p>
+            <p> All rights reserved.</p>
+            <ul>
+                <a href="#" class="footer"> Terms of Use</a>
+                <a href="#" class="footer"> Privacy Policy </a>
+                <a href="#" class="footer"> Contact Us </a>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <a href="index.html" class="footer">HOME</a><br>
+                <a href="product.html" class="footer">PRODUCT</a><br>
+                <a href="cart.html" class="footer">CART</a><br>
+                <a href="#" class="footer">SIGN IN</a><br>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container" id="product-container">
+            <!-- Products will be dynamically injected here -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Project Milestones.</p>
+            <p>All rights reserved.</p>
+            <ul>
+                <a href="#" class="footer">Terms of Use</a>
+                <a href="#" class="footer">Privacy Policy</a>
+                <a href="#" class="footer">Contact Us</a>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('/api/products'); // Fetch the products
+                if (!response.ok) {
+                    throw new Error('Failed to fetch products');
+                }
+                const products = await response.json();
+                const container = document.getElementById('product-container');
+
+                // Loop through the products and create HTML dynamically
+                products.forEach(product => {
+                    const productSection = document.createElement('section');
+                    productSection.classList.add('product-details', 'row');
+                    
+                    const productImage = document.createElement('div');
+                    productImage.classList.add('product-image', 'col-half');
+                    const imgElement = document.createElement('img');
+                    imgElement.src = './' + product.image_url; // Assuming image_url is the filename
+                    imgElement.alt = product.name;
+                    productImage.appendChild(imgElement);
+                    
+                    const productInfo = document.createElement('div');
+                    productInfo.classList.add('product-info', 'col-half');
+                    
+                    const topArea = document.createElement('div');
+                    topArea.classList.add('top-area');
+                    
+                    const productName = document.createElement('h1');
+                    productName.classList.add('product-name');
+                    productName.textContent = product.name;
+
+                    const description = document.createElement('p');
+                    description.classList.add('description');
+                    description.textContent = product.description;
+
+                    const extraInfo = document.createElement('p');
+                    extraInfo.classList.add('extra-info');
+                    extraInfo.innerHTML = `<b>Dimensions:</b> ${product.dimensions || 'N/A'}`;
+                    
+                    const availability = document.createElement('p');
+                    availability.classList.add('availability');
+                    availability.innerHTML = `<b>Availability:</b> ${product.stock > 0 ? 'In Stock' : 'Out of Stock'}`;
+                    
+                    topArea.appendChild(productName);
+                    topArea.appendChild(description);
+                    topArea.appendChild(extraInfo);
+                    topArea.appendChild(availability);
+                    
+                    const bottomArea = document.createElement('div');
+                    bottomArea.classList.add('bottom-area');
+                    
+                    const price = document.createElement('p');
+                    price.classList.add('price');
+                    price.innerHTML = `<span>$</span>${product.price}`;
+
+                    const addToCart = document.createElement('a');
+                    addToCart.classList.add('add-to-cart');
+                    addToCart.href = 'cart.html';
+                    addToCart.textContent = 'Add to Cart';
+
+                    bottomArea.appendChild(price);
+                    bottomArea.appendChild(addToCart);
+
+                    productInfo.appendChild(topArea);
+                    productInfo.appendChild(bottomArea);
+
+                    productSection.appendChild(productImage);
+                    productSection.appendChild(productInfo);
+
+                    container.appendChild(productSection);
+                });
+            } catch (error) {
+                console.error('Error loading products:', error);
+                alert('Error loading products.');
+            }
+        });
+    </script>
+
+</body>
+</html>
